@@ -1,10 +1,11 @@
 'use strict';
 
 // Вывести текущий день и время на страницу
+const innerDate = document.getElementById('date');
+
 const date = new Date();
 const day = date.getDay(); // 0 - 6
 const dayTitle = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-const timeSet = ['ночь', 'утро', 'день', 'вечер'];
 
 let dateStop = new Date('1 January 2023').getTime();
 let dateNow = new Date().getTime();
@@ -27,7 +28,16 @@ function checkHour() {
 }
 checkHour();
 
-console.log(hour);
-console.log(`Сегодня ${dayTitle[day]}`);
-console.log(`Текущее время ${timeNow} `);
-console.log(`До нового года осталось ${days} дня`);
+innerDate.innerHTML = ` 
+${hour} <br>
+Сегодня ${dayTitle[day]}
+<br>
+Текущее время ${timeNow} 
+<br>
+До нового года осталось ${days} дня `;
+
+// console.log(innerDate);
+// console.log(hour);
+// console.log(`Сегодня ${dayTitle[day]}`);
+// console.log(`Текущее время ${timeNow} `);
+// console.log(`До нового года осталось ${days} дня`);
